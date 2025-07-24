@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "louageApp",
+=======
+  "name": "AppLouage",
+>>>>>>> 9243be3d9796f2bd8bd79373acb3080d2a3e8813
   "integrations": {
     "capacitor": {}
   },

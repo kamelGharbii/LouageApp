@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ isEditMode ? 'Modifier' : 'Ajouter' }} un utilisateur
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input formControlName="prenom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telephone</ion-label>
+      <ion-input formControlName="telephone" type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+
+    <ion-item *ngIf="!isEditMode">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Rôle</ion-label>
+      <ion-select formControlName="role">
+        <ion-select-option value="client">Client</ion-select-option>
+        <ion-select-option value="chauffeur">Chauffeur</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ng-container *ngIf="userForm.get('role')?.value === 'chauffeur'">
+      <ion-item>
+        <ion-label position="floating">CIN</ion-label>
+        <ion-input formControlName="cin"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Permis</ion-label>
+        <ion-input formControlName="permis"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Matricule</ion-label>
+        <ion-input formControlName="matricule"></ion-input>
+      </ion-item>
+    </ng-container>
+
+    <ion-button expand="block" color="primary" type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </ion-button>
+  </form>
+</ion-content>
