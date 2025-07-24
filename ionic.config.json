@@ -1,0 +1,7 @@
+{
+  "name": "louageApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
